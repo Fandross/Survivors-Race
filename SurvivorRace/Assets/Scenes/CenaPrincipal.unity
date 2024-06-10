@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 50789883}
   - component: {fileID: 50789884}
   - component: {fileID: 50789885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jogador
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,11 +218,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27af8366408744fe881d74308cf8ed7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidbody: {fileID: 50789883}
-  velocidade: 30
+  playerPrefab: {fileID: 50789880}
+  velocidade: 70
   velocidadeMaxima: 50
-  velocidadeGiro: 60
+  velocidadeGiro: 150
   debug: {fileID: 1210625368}
+  pontos: 0
+  estrelas: 0
+  pontosParaGanharEstrela: 5
+  humanManager: {fileID: 492601521}
 --- !u!1 &154029701
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +402,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &492601519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492601520}
+  - component: {fileID: 492601521}
+  m_Layer: 0
+  m_Name: HumanManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &492601520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492601519}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.4405527, y: -2.622203, z: 4.402131}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1889865322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492601521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492601519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167fb4b3835d84dcfaefba95cb45bc2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  humanPrefab: {fileID: 3046093971024922147, guid: cee9e0051d992492b8a8b947bf85da82, type: 3}
+  spawnChance: 50
+  distanciaPista: 3000
+  maxHumans: 50
+  activeHumans: []
 --- !u!1001 &495426651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -446,9 +499,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7948660828100032839, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4819223349682164798, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4701060226211541619, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3664811705211809293, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
       propertyPath: m_Name
       value: ambulance
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397621468118695034, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416163511543646822, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752030738778784939, guid: bd02791a4c4aa48c496ea47280a286a4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -493,7 +578,7 @@ MonoBehaviour:
   - {fileID: 4286819399455244609, guid: 8709f2a1923434b2c9b512d6ba6f8b2d, type: 3}
   tileListaDesert: []
   tamanhoTile: 10
-  quantidadeTilesMaxima: 100
+  quantidadeTilesMaxima: 300
 --- !u!4 &610867328
 Transform:
   m_ObjectHideFlags: 0
@@ -502,12 +587,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610867326}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19841817, y: -5.1051083, z: 12.5893}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2421346, y: -7.727311, z: 16.991432}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1889865322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -615,7 +700,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -709,6 +794,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jogadorRef: {fileID: 50789880}
+--- !u!1 &1176972653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176972655}
+  - component: {fileID: 1176972654}
+  m_Layer: 0
+  m_Name: HospitalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1176972654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176972653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466478de6029e4e859d8b3736fc01075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pontosParaGanharEstrela: 5
+  hospitalPrefab: {fileID: 8502255895112168975, guid: 67852f674088a48de9057d79f6ef3e1b, type: 3}
+  listaHospitais: []
+  activeHospitais: 0
+  maxHospitaisSpawn: 10
+  distanciaPista: 3000
+  spawnChance: 10
+--- !u!4 &1176972655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176972653}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1889865322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1202630927
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1202630928
 RectTransform:
   m_ObjectHideFlags: 0
@@ -909,12 +1045,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210625366}
   m_CullTransparentMesh: 1
+--- !u!1 &1889865321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1889865322}
+  m_Layer: 0
+  m_Name: '== MANAGERS == '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1889865322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889865321}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4405527, y: 2.622203, z: -4.402131}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 492601520}
+  - {fileID: 610867328}
+  - {fileID: 1176972655}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 705507995}
   - {fileID: 50789881}
-  - {fileID: 610867328}
   - {fileID: 350794663}
   - {fileID: 154029705}
+  - {fileID: 1889865322}

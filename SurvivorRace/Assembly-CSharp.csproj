@@ -62,6 +62,8 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/ObstacleManager.cs" />
     <Compile Include="Assets/Scripts/JogadorController.cs" />
+    <Compile Include="Assets/Scripts/HospitalController.cs" />
+    <Compile Include="Assets/Scripts/HumanManager.cs" />
     <Compile Include="Assets/Scripts/WaterMovement.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
   </ItemGroup>
