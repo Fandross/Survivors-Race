@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class HospitalController : MonoBehaviour
 {
-    public int pontosParaGanharEstrela = 5; // Pontos necessários para ganhar uma estrela
-
+    public int pontosParaGanharEstrela = 5; 
     public GameObject hospitalPrefab;
     public List<GameObject> listaHospitais = new List<GameObject>();
     public int activeHospitais = 0;
-    public int maxHospitaisSpawn = 10;
-    public int distanciaPista = 3000;
-    public int spawnChance = 10;
+    public int maxHospitaisSpawn = 100;
+    public int distanciaPista = 30000;
+    public int spawnChance = 1;
 
 
     public void TrySpawnHospital()

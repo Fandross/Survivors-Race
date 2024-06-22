@@ -358,11 +358,14 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.29f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.29f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/Imports/DenysAlmaral/DenysAlmaral/CityPeopleLite/Demo_Scenes/Scripts/CityPeople.cs"
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/HospitalController.cs"
 "Assets/Scripts/HumanManager.cs"
 "Assets/Scripts/JogadorController.cs"
 "Assets/Scripts/ObstacleManager.cs"
+"Assets/Scripts/SceneLoader.cs"
+"Assets/Scripts/VitoriaController.cs"
 "Assets/Scripts/WaterMovement.cs"
 -langversion:9.0
 /deterministic
